@@ -8,12 +8,12 @@ This document outlines the detailed tasks for migrating the Ghostfolio TypeScrip
 ### Phase 1: Foundation Setup (Weeks 1-4)
 
 #### 1.1 Rails Application Setup
-- [ ] Create new Rails API application in maybe-finance-api folder
+- [x] Create new Rails API application in maybe-finance-api folder
   ```bash
   rails new maybe-finance-api --api --database=postgresql --skip-test
   ```
-- [ ] Configure Gemfile with required gems (see detailed Gemfile below)
-- [ ] Run `bundle install` to install all dependencies
+- [x] Configure Gemfile with required gems (see detailed Gemfile below)
+- [x] Run `bundle install` to install all dependencies
 - [ ] Configure application settings in `config/application.rb`
 - [ ] Set up environment variables with `.env` files
 - [ ] Configure Redis connection for caching and background jobs
@@ -169,7 +169,7 @@ end
    # rbenv rehash
    
    # Option 2: Update Gemfile to use your current Ruby version
-   # Change ruby "3.2.0" to ruby "2.6.10" in Gemfile
+   # Chang e ruby "3.2.0" to ruby "2.6.10" in Gemfile
    
    # Option 3: Use --user-install flag (temporary solution)
    gem install bundler --user-install
