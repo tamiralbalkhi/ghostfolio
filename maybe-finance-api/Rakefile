@@ -1,0 +1,39 @@
+require_relative 'config/application'
+
+Rails.application.load_tasks
+
+namespace :db do
+  desc 'Create the database'
+  task :create do
+    Rake::Task['db:create'].invoke
+  end
+
+  desc 'Migrate the database'
+  task :migrate do
+    Rake::Task['db:migrate'].invoke
+  end
+
+  desc 'Seed the database'
+  task :seed do
+    Rake::Task['db:seed'].invoke
+  end
+end
+
+namespace :api do
+  desc 'Start the API server'
+  task :start do
+    puts 'Starting the API server...'
+    # Add code to start the server if needed
+  end
+end
+
+desc 'Run all tests'
+task :test do
+  Rake::Task['spec'].invoke
+end
+
+desc 'Run the application'
+task :run do
+  puts 'Running the application...'
+  # Add code to run the application if needed
+end

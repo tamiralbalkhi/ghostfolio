@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: maybe_finance_development
+  pool: 5
+  username: your_username
+  password: your_password
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: maybe_finance_test
+  pool: 5
+  username: your_username
+  password: your_password
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: maybe_finance_production
+  pool: 5
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] %>

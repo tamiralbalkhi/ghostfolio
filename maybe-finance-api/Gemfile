@@ -1,0 +1,111 @@
+source "https://rubygems.org"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby "3.2.9"
+
+# Core Rails gems
+gem "rails", "~> 7.1.0"
+gem "pg", "~> 1.1"
+gem "puma", "~> 5.0"
+
+# Authentication & Authorization
+gem "devise", "~> 4.9"
+gem "devise-jwt", "~> 0.10.0"  # JWT token authentication
+gem "pundit", "~> 2.3"         # Authorization policies
+
+# API & Serialization
+gem "rack-cors"                 # CORS handling
+gem "active_model_serializers", "~> 0.10.0"
+gem "jbuilder", "~> 2.7"       # JSON templates
+gem "kaminari", "~> 1.2"       # Pagination
+
+# Background Jobs & Caching
+gem "redis", "~> 4.0"
+gem "sidekiq", "~> 7.0"
+
+# External API Integration
+gem "httparty", "~> 0.21"
+gem "faraday", "~> 2.7"        # HTTP client
+gem "faraday-retry", "~> 2.0"  # Retry logic
+
+# Financial & Currency
+gem "money-rails", "~> 1.15"
+gem "currencies", "~> 0.4.2"   # Currency data
+
+# Database & Performance
+gem "pg_search", "~> 2.3"      # Full-text search
+gem "bullet", "~> 7.0"         # N+1 query detection (dev/test)
+
+# Configuration & Environment
+gem "dotenv-rails", "~> 2.8"
+gem "config", "~> 4.2"         # Application configuration
+
+# Monitoring & Logging
+gem "lograge", "~> 0.12"       # Structured logging
+gem "amazing_print", "~> 1.4"  # Pretty printing
+
+# Security
+gem "strong_password", "~> 0.0.9"
+gem "rack-attack", "~> 6.6"    # Rate limiting
+gem "secure_headers", "~> 6.5" # Security headers
+
+# Documentation
+gem "rswag", "~> 2.8"          # Swagger/OpenAPI docs
+
+# Validation & Utilities
+gem "validates_email_format_of", "~> 1.7"
+gem "chronic", "~> 0.10.2"     # Natural language date parsing
+
+# Reduces boot times through caching; required in config/boot.rb
+gem "bootsnap", "~> 1.16", require: false
+
+group :development, :test do
+  # Testing framework
+  gem "rspec-rails", "~> 6.0"
+  gem "factory_bot_rails", "~> 6.2"
+  gem "faker", "~> 3.1"
+
+  # Code quality
+  gem "rubocop", "~> 1.48"
+  gem "rubocop-rails", "~> 2.17"
+  gem "rubocop-rspec", "~> 2.18"
+  gem "rubocop-performance", "~> 1.16"
+
+  # Debugging
+  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "pry-rails", "~> 0.3.9"
+  gem "pry-byebug", "~> 3.10"
+end
+
+group :development do
+  # Development tools
+  gem "listen", "~> 3.3"
+  gem "spring", "~> 4.1"
+  gem "spring-watcher-listen", "~> 2.1"
+
+  # Performance profiling
+  gem "rack-mini-profiler", "~> 3.0"
+
+  # Database tools
+  gem "annotate", "~> 3.2"       # Model annotations
+end
+
+group :test do
+  # Testing utilities
+  gem "shoulda-matchers", "~> 5.3"
+  gem "webmock", "~> 3.18"       # HTTP request stubbing
+  gem "vcr", "~> 6.1"            # Record HTTP interactions
+  gem "database_cleaner-active_record", "~> 2.0"
+  gem "timecop", "~> 0.9.6"      # Time travel for tests
+
+  # Test coverage
+  gem "simplecov", "~> 0.22", require: false
+  gem "simplecov-html", "~> 0.12", require: false
+end
+
+group :production do
+  # Production monitoring
+  gem "newrelic_rpm", "~> 8.16"  # Application monitoring
+  gem "sentry-ruby", "~> 5.8"    # Error tracking
+  gem "sentry-rails", "~> 5.8"
+end
